@@ -1,0 +1,24 @@
+syntax="proto3";
+
+option go_package = "./github.com/kjayantmenon/assetregistry";
+
+service AssetRegistry{
+    rpc GetAllAssets (NoAssetParams) returns (AssetList) {}  
+}
+
+message NoAssetParams{}
+
+message AssetList{
+    repeated Asset assets=1;
+}
+
+message Asset {
+    string assetId = 1;
+    string name = 2;
+    string description=3;
+    string protocol=4;
+    string secondary_protocol=5;
+    string primary_endpoint=6;
+    string secondary_endpoint=7;
+    string timeout=8;
+}
